@@ -1,8 +1,8 @@
 // const bcrypt = require("bcryptjs");
 const router = require("express").Router();
 
-const authRouter = require("../auth/authRouter");
-const usersRouter = require("../routes/userRouter");
+const authRouter = require("./auth");
+const usersRouter = require("./user");
 
 router.use("/auth", authRouter);
 router.use("/users", usersRouter);

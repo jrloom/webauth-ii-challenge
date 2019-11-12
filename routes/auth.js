@@ -34,6 +34,7 @@ router.post("/login", (req, res) => {
 
 router.get("/logout", (req, res) => {
   if (req.session) {
+    // eslint-disable-next-line no-unused-expressions
     req.session.destroy;
     res.status(200).json({ message: "Bye" });
   } else {
