@@ -8,8 +8,8 @@ const morgan = require("morgan");
 const knexConnection = require("../data/dbConfig");
 
 const sessionConfig = {
-  name: "webAuthChallengeII",
-  secret: process.env.COOKIE_SECRET,
+  name: "auth",
+  secret: process.env.COOKIE_SECRET || "secret",
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -26,9 +26,9 @@ const sessionConfig = {
   })
 };
 
-module.export = server => {
+module.exports = server => {
   server.use(helmet());
-  server.use(express.json);
+  server.use(express.json());
   server.use(cors());
   server.use(session(sessionConfig));
   server.use(morgan("dev"));
