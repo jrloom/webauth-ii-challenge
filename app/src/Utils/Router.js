@@ -1,12 +1,14 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
-import Users from '../Users'
+import Users from "../Users";
 
 const Router = () => {
-  return(
+  return (
     <>
-      <Route path='/users' render={<Users cookies={props.cookies}/>}>
+      <Route path="/users" component={Users} />
     </>
-  )
+  );
 };
+
+export default Router;

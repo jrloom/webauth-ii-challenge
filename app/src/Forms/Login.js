@@ -1,5 +1,6 @@
 import React from "react";
-import { axiosWithAuth } from "../utils/AxiosWithAuth";
+// import { axiosWithAuth } from "../Utils/AxiosWithAuth";
+import axios from "axios";
 import { withFormik } from "formik";
 import * as Yup from "yup";
 
@@ -26,8 +27,8 @@ export default withFormik({
     // password: Yup.string().required()
   }),
   handleSubmit(values, { resetForm, history }) {
-    axiosWithAuth()
-      .post("/auth/login", values)
+    axios
+      .post("http://localhost:5000/api/auth/login", values)
       .then(res => {
         console.log(`login success`, res);
       })
